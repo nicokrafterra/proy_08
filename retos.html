@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        class Persona {
+
+            #documento;
+            #nombreCompleto;
+
+            constructor() {
+                this.#documento = '';
+                this.#nombreCompleto = '';
+            }
+
+            set setDocumento(value) {
+                this.#documento = value;
+            }
+
+            get getDocumento() {
+                return this.#documento
+            }
+
+            set setNombreCompleto(value) {
+                this.#nombreCompleto = value;
+            }
+
+            get getNombreCompleto() {
+                return this.#nombreCompleto
+            }
+
+            informacion() {
+                console.log('Hola mi nombre es ' + this.getNombreCompleto + ' y mi numero de documento es ' + this.getDocumento)
+            }
+        }
+
+        class Aprendiz extends Persona {
+
+            #ficha
+            #programa
+
+            constructor() {
+                super();
+                this.#ficha = '';
+                this.#programa = '';
+            }
+
+            set setFicha(value) {
+                this.#ficha = value;
+            }
+
+            get getFicha() {
+                return this.#ficha
+            }
+
+            set setPrograma(value) {
+                this.#programa = value;
+            }
+
+            get getPrograma() {
+                return this.#programa
+            }
+
+            matricula() {
+                console.log('Pesrtenesco al la ficha ' + this.getFicha + ' del programa ' + this.getPrograma)
+            }
+        }
+
+        class Instructor extends Persona {
+            #profecion;
+            #salarioBasico;
+
+            constructor() {
+                super();
+                this.#profecion = '';
+                this.#salarioBasico = 0;
+            }
+
+            set setProfecion(value) {
+                this.#profecion = value;
+            }
+
+            get getProfecion() {
+                return this.#profecion
+            }
+
+            set setSalarioBase(value) {
+                this.#salarioBasico = value;
+            }
+
+            get getSalarioBase() {
+                return this.#salarioBasico
+            }
+
+            contrato() {
+                console.log('Mi profecion es ' + this.getProfecion + ' con un salario basico de $' + this.getSalarioBase)
+            }
+        }
+
+        class EtapaLectiva extends Aprendiz {
+            #numeroTrimestre;
+            #fechaInicio;
+            #fechaTerminacion;
+
+            constructor() {
+                super();
+                this.#numeroTrimestre = 0;
+                this.#fechaInicio = '';
+                this.#fechaTerminacion = '';
+            }
+
+            set setNumeroTrimestre(value) {
+                this.#numeroTrimestre = value;
+            }
+
+            get getNumeroTrimestre() {
+                return this.#numeroTrimestre
+            }
+
+            set setFechaInicio(value) {
+                this.#fechaInicio = value;
+            }
+
+            get getFechaInicio() {
+                return this.#fechaInicio
+            }
+
+            set setFechaTerminacion(value) {
+                this.#fechaTerminacion = value;
+            }
+
+            get getFechaTerminacion() {
+                return this.#fechaTerminacion
+            }
+
+            informacionEtapaLectiva() {
+                console.log(' inicie el ' + this.getFechaInicio + ' y termino etapa lectiva el ' + this.getFechaTerminacion)
+            }
+
+            estado() {
+                console.log('actualmente estoy en el trimestre ' + this.getNumeroTrimestre)
+            }
+        }
+        const aprendiz1 = new EtapaLectiva
+
+        aprendiz1.setPrograma='ADSO';
+        aprendiz1.setDocumento='1069645810' ;
+        aprendiz1.setFechaInicio='11/06/2023';
+        aprendiz1.setFechaTerminacion='11/06/2025';
+        aprendiz1.setFicha='2798618';
+        aprendiz1.setNombreCompleto='Juan Nicolas Orjuela Mican';
+        aprendiz1.setNumeroTrimestre=2;
+        
+        aprendiz1.informacion();
+        aprendiz1.informacionEtapaLectiva();
+        aprendiz1.estado();
+        aprendiz1.matricula();
+
+        const instructor1 = new Instructor 
+
+        instructor1.setDocumento='1069642846'
+        instructor1.setNombreCompleto='Juan Nicolas Orjuela Mican'
+        instructor1.setProfecion='Ingeniero de sistemas'
+        instructor1.setSalarioBase=2600000
+
+        instructor1.informacion();
+        instructor1.contrato();
+    </script>
+</body>
+
+</html>

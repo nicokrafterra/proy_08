@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        class Persona {
+            //DEfeinir atributos
+            #nombreCompleto;
+            #edad;
+
+            //Definir metodo comstructor
+            constructor() {
+                this.#nombreCompleto = '';
+                this.#edad = 0;
+            }
+
+            //Metodos Getter Y Setter
+            set setNombreCompleto(value) {
+                this.#nombreCompleto = value;
+            }
+
+            get getNombreCompleto() {
+                return this.#nombreCompleto;
+            }
+
+            set setEdad(value) {
+                this.#edad = value
+            }
+
+            get getEdad() {
+                return this.#edad
+            }
+
+            //Otros Metodos
+
+            Saludar() {
+                console.log('Hola me llamo ' + this.getNombreCompleto + ' y tengo ' + this.getEdad + ' años')
+            }
+        }
+
+        //SubClase Aprendiz
+        class Aprendiz extends Persona {
+            //Definir atributos de Aprendiz
+            #ficha;
+            #programa;
+
+            //Metodo Constructor    
+            constructor() {
+                super();//Se invoca el metodo constructor de la super clase Pesona
+                this.#ficha = '';
+                this.#programa = '';
+            }
+
+            //metodos Setter Y Getter 
+            set setFicha(value) {
+                this.#ficha = value;
+            }
+
+            get getFicha() {
+                return this.#ficha
+            }
+
+            set setPrograma(value) {
+                this.#programa = value;
+            }
+
+            get getPrograma() {
+                return this.#programa
+            }
+
+            Matricula() {
+                console.log('Estoy inscrito en la ficha ' + this.getFicha + ' del programa ' + this.getPrograma)
+            }
+        }
+
+        class Instructor extends Persona {
+
+            #profecion;
+            #tipoVinculacion;
+
+            constructor() {
+                super();
+                this.#profecion = '';
+                this.#tipoVinculacion = '';
+            }
+
+            set setProfecion(value) {
+                this.#profecion = value;
+            }
+
+            get getProfecion() {
+                return this.#profecion
+            }
+
+            set setTipoVinculacion(value) {
+                this.#tipoVinculacion = value;
+            }
+
+            get getTipoVinculacion() {
+                return this.#tipoVinculacion
+            }
+
+            contrato(){
+                console.log('Mi profecion es '+this.getProfecion+' y mi tipo de vinculacion es '+this.getTipoVinculacion)
+            }
+        }
+
+        class InstructorPlanta extends Instructor {
+
+            #fechaVinculacion
+
+            constructor(){
+                super();
+                this.#fechaVinculacion = 0;
+            }
+
+            set setFechaVinculacion(value){
+                this.#fechaVinculacion = value;
+            }
+
+            get getFechaVinculacion(){
+                return this.#fechaVinculacion
+            }
+
+            contrato(){
+                console.log('Mi profecion es '+this.getProfecion+' con vinculacion de tipo '+this.getTipoVinculacion+' desde el año '+ this.getFechaVinculacion)
+            }
+        }
+
+        const aprendiz1 = new Aprendiz;
+
+        aprendiz1.setNombreCompleto = 'Juan'
+        aprendiz1.setEdad = 17;
+        aprendiz1.setFicha = '2798618'
+        aprendiz1.setPrograma = 'Análisis y Desarrollo de SoftWare'
+
+        aprendiz1.Saludar();
+        aprendiz1.Matricula();
+
+        const aprendiz2 = new Aprendiz;
+
+        aprendiz2.setNombreCompleto = 'Giss'
+        aprendiz2.setEdad = 20;
+        aprendiz2.setFicha = '2798618'
+        aprendiz2.setPrograma = 'Análisis y Desarrollo de SoftWare'
+
+        aprendiz2.Saludar();
+        aprendiz2.Matricula();
+
+        const instructor1 = new InstructorPlanta
+
+        instructor1.setNombreCompleto = 'Juan Nicolas';
+        instructor1.setEdad = 27;
+        instructor1.setProfecion = 'Ingeniero de Sistemas';
+        instructor1.setTipoVinculacion = 'Planta';
+        instructor1.setFechaVinculacion = 2019;
+
+        instructor1.Saludar();
+        instructor1.contrato();
+    </script>
+</body>
+
+</html>
